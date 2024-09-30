@@ -1,0 +1,23 @@
+.container{
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    display:flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.card {
+    width: 70%;
+    justify-content:space-between;
+    padding: 2rem;
+    box-shadow: 2px 5px 10px rgb(97, 97, 97);
+    border: 0;
+    border-radius: 25px;
+}
+
+.col {
+    align-content: center   ;
+}
+
+.form-check {
+    justify-content: end;
+}
