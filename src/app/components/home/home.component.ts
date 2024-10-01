@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PanelComponent } from "../panel/panel.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, PanelComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
