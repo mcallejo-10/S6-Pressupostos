@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BudgetService } from '../../services/budget.service';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
 export class PanelComponent {
-  numPages: number = 0;
+  budgetService = inject(BudgetService);
+  subtotal:number = 0;
 
+
+  //subtotal = this.budgetService.calculateTotalBudget();
   
 
 }

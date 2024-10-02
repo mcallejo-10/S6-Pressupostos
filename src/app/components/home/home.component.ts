@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PanelComponent } from "../panel/panel.component";
+import { BudgetService } from '../../services/budget.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,13 @@ import { PanelComponent } from "../panel/panel.component";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  
+  budgetService = inject(BudgetService);
   total: number = 0;
   isCheckedSeo: boolean = false;
   isCheckedAds: boolean = false;
   isCheckedWeb: boolean = false;
+  
   
   calculateTotal() {
     this.total = 0;
