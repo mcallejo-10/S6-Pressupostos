@@ -33,7 +33,7 @@ export class PanelComponent {
 
   decrement(field: string) {
     const currentValue = this.budgetWebForm.get(field)?.value;
-    if (currentValue > 0) {
+    if (currentValue > 1) {
       this.budgetWebForm.get(field)?.setValue(currentValue - 1);
     }
     this.numPages = this.budgetWebForm.get('numPages')?.value

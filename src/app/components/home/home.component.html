@@ -1,6 +1,15 @@
 <div class="container container-fluid">
+    <!-- <nav class="navbar"> -->
+        <div class="row w-100 brand">
+            <h5>Frontender.itacademy</h5>
+        </div>
+        <div class="row w-100 title">
+            <h2>Aconseguieix la millor qualitat</h2>
+        </div>
+    <!-- </nav> -->
+ 
     <div class="row w-100 justify-content-center">
-        <div class="col-10">
+        <div class="col-10" id="cards">
 
             <div class="card">
                 <div class="row">
@@ -9,8 +18,8 @@
                         <p>Programació d'una web responsive completa</p>
                     </div>
                     <h2 class="col col-4"><b>300</b>€</h2>
-                    <div class="col col-1 form-check">
-                        <input class="form-check-input" (change)="calculateTotal()"  [(ngModel)]="isCheckedSeo" type="checkbox" value="" id="flexCheckDefault" />
+                    <div class="col col-2 form-check">
+                        <input class="form-check-input m-2" (change)="calculateTotal()"  [(ngModel)]="isCheckedSeo" type="checkbox" value="" id="flexCheckDefault" />
                         <label class="form-check-label" for="flexCheckDefault">
                             Afegir
                         </label>
@@ -24,8 +33,8 @@
                         <p>Programació d'una web responsive completa</p>
                     </div>
                     <h2 class="col col-4"><b>400</b>€</h2>
-                    <div class="col col-1 form-check">
-                        <input class="form-check-input" (change)="calculateTotal()" [(ngModel)]="isCheckedAds" type="checkbox" value="" id="flexCheckDefault" />
+                    <div class="col col-2 form-check">
+                        <input class="form-check-input m-2" (change)="calculateTotal()" [(ngModel)]="isCheckedAds" type="checkbox" value="" id="flexCheckDefault" />
                         <label class="form-check-label" for="flexCheckDefault">
                             Afegir
                         </label>
@@ -39,20 +48,22 @@
                         <p>Programació d'una web responsive completa</p>
                     </div>
                     <h2 class="col col-4"><b>500</b>€</h2>
-                    <div class="col col-1 form-check">
-                        <input class="form-check-input"  (change)="calculateTotal()" [(ngModel)]="isCheckedWeb" type="checkbox" value="" id="flexCheckDefault" />
+                    <div class="col col-2 form-check">
+                        <input class="form-check-input m-2"  (change)="calculateTotal()" [(ngModel)]="isCheckedWeb" type="checkbox" value="" id="flexCheckDefault" />
                         <label class="form-check-label" for="flexCheckDefault">
                             Afegir
                         </label>
                     </div>
                 </div>
+
                 @if(isCheckedWeb === true) {
+                <div class="row">
                     <app-panel></app-panel>
+                </div>
                 }
             </div>
             <div>
                 <h5>Preu pressupostat:  {{total}}€</h5>
-                <p>{{totalPlusWeb}}</p>
             </div>
         </div>
     </div>

@@ -1,16 +1,52 @@
 .container {
     display: flex;
     justify-content: flex-end;
+    
 }
 
-.btn-count {
-    display: flex;
-    color: grey;
-    display: inline-block;
-    border: 1px solid grey;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 8px;
-    width: 12px;
-    height: 13px;
+.row {
+    align-items: center;
 }
+
+.form-label {
+    width: fit-content;
+
+}
+.form-control {
+    justify-items: center;
+    width: 2rem;
+    height:fit-content;
+    padding: 0;
+    margin: 1rem;
+    text-justify: center;
+    text-align: center;
+
+
+
+}
+.rounded-pill {
+    display: flex;
+    align-items: center;  
+    justify-content: center; 
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    background-color: transparent;
+    text-align: center;
+    width: 15px;  
+    height: 15px; 
+    font-size: 12px; 
+    padding: 0; 
+    cursor: pointer; 
+  }
+  
+
+
+
+input[type="number"] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+
+    }
+}
+  

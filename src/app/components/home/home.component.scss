@@ -1,28 +1,48 @@
 .container{
-    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-    display:flex;
+    font-family: 'Gill Sans', 'Calibri', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    
     justify-content: center;
+   
     padding: 1rem;
 }
 
+.brand {
+    margin: 2rem;
+}
+.title {
+ 
+    width: 90%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 25px;
+    text-align: center;
+    padding: 5rem;
+    margin: 2rem;  
+   
+}
 h3 {
     font-weight: bold;
 }
 
 .card {
-    width: 100%;
-    justify-content:space-between;
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
     padding: 2rem;
     margin: 1rem;
     box-shadow: 2px 5px 10px rgb(97, 97, 97);
     border: 0;
     border-radius: 25px;
+    flex-shrink: 1;
 }
 
+
 .col {
-    align-content: center   ;
+    align-content: center;
 }
 
 .form-check {
-    justify-content: end;
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    padding-right: 2rem;  
 }
