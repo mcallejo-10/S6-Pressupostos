@@ -1,15 +1,19 @@
 <div class="container container-fluid">
-    <div class="row justify-items-end" id="pages">
-        <div class="col-8">Nombre de pàgines</div>
-        <div class="col-1">
-            <button type="button" class="btn btn-count">-</button>
+    <form [formGroup]="budgetWebForm">
+        <div>
+          <label for="numPages">Número de Páginas</label>
+          <button type="button" (click)="decrement('numPages')">-</button>
+          <input id="numPages" formControlName="numPages" type="number">
+          <button type="button" (click)="increment('numPages')">+</button>
         </div>
-        <div class="col-1">
-            <input type="number" (change)="calculat()" placeholder="{{numPages}}">
+      
+        <div>
+          <label for="numLang">Número de Idiomas</label>
+          <button type="button" (click)="decrement('numLanguages')">-</button>
+          <input id="numLanguages" formControlName="numLanguages" type="number">
+          <button type="button" (click)="increment('numLanguages')">+</button>
         </div>
-        <div class="col-1">
-            <button type="button" class="btn btn-white">+</button>
-        </div>
-    </div>
+      </form>
+      <p>{{numLanguages}} i {{numPages}}</p>
 
 </div>
