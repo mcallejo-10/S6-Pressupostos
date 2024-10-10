@@ -22,6 +22,12 @@ export class PanelComponent {
     });
   }
 
+  ngOnInit() {
+    this.budgetService.calculateTotalBudget(this.numPages, this.numLanguages);
+
+  }
+
+
   increment(field: string) {
     const currentValue = this.budgetWebForm.get(field)?.value;
     this.budgetWebForm.get(field)?.setValue(currentValue + 1);

@@ -1,10 +1,10 @@
 <div class="container container-fluid">
     <!-- <nav class="navbar"> -->
         <div class="row w-100 brand">
-            <h5>Frontender.itacademy</h5>
+            <h6>Frontender.itacademy</h6>
         </div>
         <div class="row w-100 title">
-            <h2>Aconseguieix la millor qualitat</h2>
+            <h2>Aconsegueix la millor qualitat</h2>
         </div>
     <!-- </nav> -->
  
@@ -19,8 +19,8 @@
                     </div>
                     <h2 class="col col-4"><b>300</b>€</h2>
                     <div class="col col-2 form-check">
-                        <input class="form-check-input m-2" (change)="calculateTotal()"  [(ngModel)]="isCheckedSeo" type="checkbox" value="" id="flexCheckDefault" />
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input m-2" (change)="calculateTotal()"  [(ngModel)]="isCheckedSeo" type="checkbox" value="" id="checkboxSeo" />
+                        <label class="form-check-label" for="checkboxSeo">
                             Afegir
                         </label>
                     </div>
@@ -34,8 +34,8 @@
                     </div>
                     <h2 class="col col-4"><b>400</b>€</h2>
                     <div class="col col-2 form-check">
-                        <input class="form-check-input m-2" (change)="calculateTotal()" [(ngModel)]="isCheckedAds" type="checkbox" value="" id="flexCheckDefault" />
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input m-2" (change)="calculateTotal()" [(ngModel)]="isCheckedAds" type="checkbox" value="" id="checkboxAds" />
+                        <label class="form-check-label" for="checkboxAds">
                             Afegir
                         </label>
                     </div>
@@ -49,8 +49,8 @@
                     </div>
                     <h2 class="col col-4"><b>500</b>€</h2>
                     <div class="col col-2 form-check">
-                        <input class="form-check-input m-2"  (change)="calculateTotal()" [(ngModel)]="isCheckedWeb" type="checkbox" value="" id="flexCheckDefault" />
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input m-2"  (change)="calculateTotal()" [(ngModel)]="isCheckedWeb" type="checkbox" value="" id="checkboxWeb" />
+                        <label class="form-check-label" for="checkboxWeb">
                             Afegir
                         </label>
                     </div>
@@ -63,7 +63,7 @@
                 }
             </div>
             <div>
-                <h5>Preu pressupostat:  {{total}}€</h5>
+                <h5>Preu pressupostat: {{total}}€</h5>
             </div>
         </div>
     </div>
