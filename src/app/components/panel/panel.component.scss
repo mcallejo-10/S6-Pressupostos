@@ -1,3 +1,5 @@
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
 .container {
     display: flex;
     justify-content: flex-end;
@@ -50,3 +52,16 @@ input[type="number"] {
     }
 }
   
+
+.btn, .btn:focus, .btn:active {
+    background-color: transparent;
+    width: 15px;
+    border: 0;    
+}
+
+.modal-body {
+    text-align: center;
+    margin: 1rem;
+
+}
+
