@@ -23,7 +23,7 @@ export class PanelComponent {
   }
 
   ngOnInit() {
-    this.budgetService.calculateTotalBudget(this.numPages, this.numLanguages);
+    this.budgetService.calculateWebBudget(this.numPages, this.numLanguages);
 
   }
 
@@ -33,7 +33,7 @@ export class PanelComponent {
     this.budgetWebForm.get(field)?.setValue(currentValue + 1);
     this.numPages = this.budgetWebForm.get('numPages')?.value
     this.numLanguages = this.budgetWebForm.get('numLanguages')?.value
-    this.budgetService.calculateTotalBudget(this.numPages, this.numLanguages);
+    this.budgetService.calculateWebBudget(this.numPages, this.numLanguages);
 
   }
 
@@ -44,7 +44,7 @@ export class PanelComponent {
     }
     this.numPages = this.budgetWebForm.get('numPages')?.value
     this.numLanguages = this.budgetWebForm.get('numLanguages')?.value
-    this.budgetService.calculateTotalBudget(this.numPages, this.numLanguages);
+    this.budgetService.calculateWebBudget(this.numPages, this.numLanguages);
 
   }
   

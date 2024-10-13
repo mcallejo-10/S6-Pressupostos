@@ -5,6 +5,7 @@
    
     padding: 1rem;
 }
+// FALTA REMARCAR EN VERD QUAN ESTA CHECKED
 
 .brand {
     margin: 2rem;
@@ -25,7 +26,7 @@ h3 {
 
 .card {
     display: flex;
-    width: 800px;
+    
     justify-content: space-between;
     padding: 2rem;
     margin: 1rem;
@@ -45,4 +46,9 @@ h3 {
     align-items: center;
     justify-content:end;
     padding-right: 2rem;  
+}
+
+.alert {
+    font-size: smaller;
+    padding: 5px;
 }
