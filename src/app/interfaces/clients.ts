@@ -1,12 +1,13 @@
-import { BootstrapOptions } from "@angular/core";
+// import { BootstrapOptions } from "@angular/core";
 
 export interface Client {
-    name: string,
-    phone: string,
-    email: string, 
-    seo: boolean,
-    ads: boolean,
-    web: boolean,
-    pages?: number, 
-    lenguages?: number
+    clientName: string;
+    phone: string;
+    email: string;
+    seo: boolean;
+    ads: boolean;
+    web: boolean;
+    total: number;
+    pages?: number; 
+    lenguages?: number;
 }

@@ -1,5 +1,5 @@
 import { Component, inject, effect } from '@angular/core';
-import { ReactiveFormsModule, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, FormsModule, Validators } from '@angular/forms';
 import { PanelComponent } from "../panel/panel.component";
 import { BudgetService } from '../../services/budget.service';
 import { BudgetsListComponent } from "../budgets-list/budgets-list.component";
@@ -18,12 +18,15 @@ export class HomeComponent {
   budgetService = inject(BudgetService);
   totalPlusWeb: number = 0;
   total: number = 0;
-  clientsList: Client[] = [];
+  
 
   isCheckedSeo: boolean = false;
   isCheckedAds: boolean = false;
   isCheckedWeb: boolean = false;
 
+  client!: Client;
+   
+  
   clientForm = new FormGroup({
     name: new FormControl('', [
       Validators.required, 
@@ -36,8 +39,9 @@ export class HomeComponent {
     email: new FormControl('', [
       Validators.required, 
       Validators.email 
-    ])
+    ]),
   });
+
 
 
   get name() {
@@ -49,11 +53,9 @@ export class HomeComponent {
   get email() {
     return this.clientForm.get('email');
   }
+  
 
-  onSubmit() {
-   this.clientsList = this.budgetService.clientsList();
-   
-  }
+
 
 
   constructor() {
@@ -80,5 +82,19 @@ export class HomeComponent {
     }
   }
 
-  
+    onSubmit() {
+    this.client = {
+    clientName: this.clientForm.value.name!,
+    phone: this.clientForm.value.phone!,
+    email: this.clientForm.value.email!,
+    seo: this.isCheckedSeo,
+    ads: this.isCheckedAds,
+    web: this.isCheckedWeb,
+    total: this.total,
+  }
+  console.warn(this.client);
+    
+    this.budgetService.addClient(this.client)
+
+  }
 }

@@ -12,7 +12,15 @@ export class BudgetService {
   clientsList = signal<Client[]>([]);
 
   addClient(client: Client) {
+    if (client.web === true) {
+      client = {
+        ...client,
+        pages: this.numPages(),
+        lenguages: this.numLanguages()
+      }
+    }
     this.clientsList.set([...this.clientsList(), client]);
+    console.warn(this.clientsList())
   }
 
   calculateWebBudget(newNumPages: number, newNumLanguages: number) {

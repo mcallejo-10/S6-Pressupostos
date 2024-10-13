@@ -97,44 +97,45 @@
                                         <div *ngIf="name?.hasError('minlength')">
                                             El nom ha de tenir com a mínim dues lletres.
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="mt-3">
-                                    <input id="fPhone" class="form-control" type="number" placeholder="Telèfon"
-                                        formControlName="phone" />
-                                    <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)"
-                                        class="alert alert-danger">
-                                        <div *ngIf="phone?.hasError('required')">
-                                            Aquest camp es obligatori.
-                                        </div>
-                                        <div *ngIf="phone?.hasError('pattern')">
-                                            El telèfon ha de tenir 9 dígits.
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="mt-3 ">
-                                    <input id="fEmail" class="form-control ml-3" type="email" placeholder="Email"
-                                        formControlName="email" />
+                                <div class="col-3">
+                                    <div class="mt-3">
+                                        <input id="fPhone" class="form-control" type="number" placeholder="Telèfon"
+                                            formControlName="phone" />
+                                        <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="phone?.hasError('required')">
+                                                Aquest camp es obligatori.
+                                            </div>
+                                            <div *ngIf="phone?.hasError('pattern')">
+                                                El telèfon ha de tenir 9 dígits.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="mt-3 ">
+                                        <input id="fEmail" class="form-control ml-3" type="email" placeholder="Email"
+                                            formControlName="email" />
                                         <div *ngIf="email?.invalid && (email?.dirty || email?.touched)"
-                                        class="alert alert-danger">
-                                        <div *ngIf="email?.hasError('required')">
-                                            Aquest camp es obligatori.
-                                        </div>
-                                        <div *ngIf="email?.hasError('email')">
-                                            Format d'email incorrecte.
+                                            class="alert alert-danger">
+                                            <div *ngIf="email?.hasError('required')">
+                                                Aquest camp es obligatori.
+                                            </div>
+                                            <div *ngIf="email?.hasError('email')">
+                                                Format d'email incorrecte.
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-3 mt-3">
+                                    <button type="submit" [disabled]="!clientForm.valid"
+                                        class="btn btn-success btn-sm ">Demanar pressupost -></button>
+                                </div>
                             </div>
-                            <div class="col-3 mt-3">
-                                <button type="submit" [disabled]="!clientForm.valid"
-                                    class="btn btn-success btn-sm ">Demanar pressupost -></button>
-                            </div>
-                        </div>
+                            
                     </form>
 
                 </div>
