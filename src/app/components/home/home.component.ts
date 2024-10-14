@@ -54,10 +54,6 @@ export class HomeComponent {
     return this.clientForm.get('email');
   }
   
-
-
-
-
   constructor() {
     effect(() => {
       this.totalPlusWeb = this.budgetService.totalPlusWeb();

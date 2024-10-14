@@ -1,4 +1,35 @@
-<div class="container container-fluid">
+@if(clientList.length > 0) {
 
-   
+
+@for(client of clientList; track client.clientName; let idx = $index) {
+<div class="card">
+    <div class="row">
+        <div class="col-4">
+            <h3 class="card-title">{{client.clientName}}</h3>
+            <p>{{client.phone}}</p>
+            <p>{{client.email}}</p>
+        </div>
+
+        <div class="col-6">
+            <ul>
+                <h6>Serveis contractats:</h6>
+
+                @if(client.seo === true) {
+                <li>Seo</li>
+                }
+                @if(client.ads === true) {
+                <li>Ads</li>
+                }
+                @if(client.web === true) {
+                <li>Web(pàgines:{{client.pages}}, llenguatges: {{client.lenguages}})</li>
+                }
+            </ul>
+        </div>
+        <div class="col-2">
+            <h6>Total:</h6>
+            <h3>{{client.total}}€</h3>
+        </div>
+    </div>
 </div>
+}
+}
