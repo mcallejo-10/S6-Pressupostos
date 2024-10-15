@@ -12,7 +12,7 @@
         <div class="col-10" id="cards">
 
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card" [ngClass]="{'border-success': isCheckedSeo}">
                     <div class="row">
                         <div class="col col-6">
                             <h3>Seo</h3>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card" [ngClass]="{'border-success': isCheckedAds}">
                     <div class="row">
                         <div class="col col-6">
                             <h3>Ads</h3>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card" [ngClass]="{'border-success': isCheckedWeb}">
                     <div class="row">
                         <div class="col col-6">
                             <h3>Web</h3>
@@ -79,7 +79,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card" >
                     <div class="row card-title">
                         <h3>Demanar pressupost</h3>
                     </div>
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 mt-3">
-                                    <button type="submit" [disabled]="!clientForm.valid"
+                                    <button type="submit" [disabled]="!clientForm.valid" 
                                         class="btn btn-success btn-sm ">Demanar pressupost -></button>
                                 </div>
                             </div>
