@@ -16,8 +16,12 @@ export class BudgetService {
       client = {
         ...client,
         pages: this.numPages(),
-        lenguages: this.numLanguages()
+        lenguages: this.numLanguages(),
       }
+    }
+    client = {
+      ...client,
+      created_at: this.getCurrentDate()
     }
     this.clientsList.set([...this.clientsList(), client]);
     console.warn(this.clientsList())
@@ -30,5 +34,17 @@ export class BudgetService {
   }
 
   constructor() { }
+  getCurrentDate(): string {
+    const today = new Date();
+    
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Los meses empiezan en 0, por lo que sumamos 1
+    const day = today.getDate().toString().padStart(2, '0'); // Asegurar que siempre tenga 2 dígitos
+  
+    return `${year}-${month}-${day}`;
+  }
+  
+  
+  
 }
 

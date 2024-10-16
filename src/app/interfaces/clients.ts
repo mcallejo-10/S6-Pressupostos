@@ -10,4 +10,5 @@ export interface Client {
     total: number;
     pages?: number; 
     lenguages?: number;
+    created_at?: string;
 }
