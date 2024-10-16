@@ -10,6 +10,7 @@ export class BudgetService {
   totalPlusWeb = signal<number>(0);
   total = signal<number>(0);
   clientsList = signal<Client[]>([]);
+ 
 
   addClient(client: Client) {
     if (client.web === true) {
@@ -21,11 +22,13 @@ export class BudgetService {
     }
     client = {
       ...client,
-      created_at: this.getCurrentDate()
+      created: this.getDate()            
     }
+
     this.clientsList.set([...this.clientsList(), client]);
     console.warn(this.clientsList())
   }
+  
 
   calculateWebBudget(newNumPages: number, newNumLanguages: number) {
     this.numLanguages.set(newNumLanguages);
@@ -34,17 +37,13 @@ export class BudgetService {
   }
 
   constructor() { }
-  getCurrentDate(): string {
-    const today = new Date();
-    
-    const year = today.getFullYear();
-    const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Los meses empiezan en 0, por lo que sumamos 1
-    const day = today.getDate().toString().padStart(2, '0'); // Asegurar que siempre tenga 2 dígitos
-  
-    return `${year}-${month}-${day}`;
+
+
+  getDate() {
+    let date = new Date()
+     return date.toISOString()
   }
-  
-  
+
   
 }
 
