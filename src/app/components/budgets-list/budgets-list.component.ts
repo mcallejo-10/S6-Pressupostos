@@ -1,11 +1,12 @@
 import { Component, effect, inject } from '@angular/core';
 import { BudgetService } from '../../services/budget.service';
 import { Client } from '../../interfaces/clients';
+import { FormControl, FormGroup, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-budgets-list',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './budgets-list.component.html',
   styleUrl: './budgets-list.component.scss'
 })
@@ -16,7 +17,8 @@ export class BudgetsListComponent {
   sortedName: boolean = false;
   sortedImport: boolean = false;
   searchedByName: boolean = false;
-  clientIdx: number = 0;
+  clientIdx: number = -1;
+
   foundClient: Client = {
     clientName: '',
     phone: '',
@@ -26,6 +28,7 @@ export class BudgetsListComponent {
     web: false,
     total: 0
   }
+
 
   constructor() {
     effect(() => {
@@ -67,11 +70,13 @@ export class BudgetsListComponent {
   }
 
   searchByName(inputName: string) {
-    
-    this.clientIdx = this.clientList.findIndex(item => item.clientName == inputName)
-    this.foundClient = this.clientList[this.clientIdx]
-    this.searchedByName = true;
-
+    this.clientIdx = this.clientList.findIndex(item => item.clientName.toLocaleLowerCase() == inputName.toLocaleLowerCase())
+    if (this.clientIdx < 0 || inputName.length == 0) {
+      this.searchedByName = false;
+    } else {
+      this.foundClient = this.clientList[this.clientIdx]
+      this.searchedByName = true;
+    }
   }
 
 } 

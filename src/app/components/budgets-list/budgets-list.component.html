@@ -3,8 +3,10 @@
     <div class="row">
         <h3>Pressupostos en curs</h3>
     </div>
+
+
     <div class="row">
-        <input type="text" onsubmit="searchByName()">
+        <input class="form-control" type="search"   #search (input)="searchByName(search.value)" onsubmit="searchByName(search.value)">
         <button class="btn sort-btn" (click)="sortByDate()">Data</button>
         <button class="btn sort-btn" (click)="sortByImport()">Import</button>
         <button class="btn sort-btn" (click)="sortByName()">Nom</button>
