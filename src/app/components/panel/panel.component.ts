@@ -1,6 +1,7 @@
-import { Component, inject, effect } from '@angular/core';
+import { Component, inject, effect, OnInit } from '@angular/core';
 import { FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { BudgetService } from '../../services/budget.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panel',
@@ -9,24 +10,18 @@ import { BudgetService } from '../../services/budget.service';
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
-export class PanelComponent {
+export class PanelComponent implements OnInit{
   budgetService = inject(BudgetService);
   totalPlusWeb:number = 0;
   numPages:number = 1;
   numLanguages:number = 1;
   budgetWebForm: FormGroup;
-  constructor() {
+  constructor(private router: Router) {
     this.budgetWebForm = new FormGroup({
       numPages: new FormControl(1), 
       numLanguages: new FormControl(1),
     });
   }
-
-  ngOnInit() {
-    this.budgetService.calculateWebBudget(this.numPages, this.numLanguages);
-
-  }
-
 
   increment(field: string) {
     const currentValue = this.budgetWebForm.get(field)?.value;
@@ -34,6 +29,7 @@ export class PanelComponent {
     this.numPages = this.budgetWebForm.get('numPages')?.value
     this.numLanguages = this.budgetWebForm.get('numLanguages')?.value
     this.budgetService.calculateWebBudget(this.numPages, this.numLanguages);
+    this.onNumChange()
 
   }
 
@@ -45,16 +41,29 @@ export class PanelComponent {
     this.numPages = this.budgetWebForm.get('numPages')?.value
     this.numLanguages = this.budgetWebForm.get('numLanguages')?.value
     this.budgetService.calculateWebBudget(this.numPages, this.numLanguages);
+    this.onNumChange()
+  }
+  onNumChange() {    
+    this.router.navigate([], {
+      queryParams: {
+        lang: this.numLanguages,
+        pag: this.numPages
+      },
+      queryParamsHandling: 'merge' 
+    });    
+  }
+
+  ngOnInit() {
+    this.router.routerState.root.queryParams.subscribe(params => {
+      this.numLanguages = +params['lang'] || 1;
+      this.numPages = +params['pag'] || 1;
+      this.budgetWebForm.patchValue({
+        numLanguages: this.numLanguages,
+        numPages: this.numPages
+      });
+      
+    });
+    this.budgetService.calculateWebBudget(this.numPages, this.numLanguages);
 
   }
-  
-  
-
-
-// aquí cogeremos el número de paginas, y 
-//lo mandamos al service com la función
-
-
-  
-
 }

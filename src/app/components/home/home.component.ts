@@ -4,6 +4,7 @@ import { PanelComponent } from "../panel/panel.component";
 import { BudgetService } from '../../services/budget.service';
 import { BudgetsListComponent } from "../budgets-list/budgets-list.component";
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { Client } from '../../interfaces/clients';
 
 @Component({
@@ -24,6 +25,9 @@ export class HomeComponent {
   isCheckedAds: boolean = false;
   isCheckedWeb: boolean = false;
 
+  numPages: number = 1;
+  numLanguages: number =1;
+
   client!: Client;
 
 
@@ -41,6 +45,7 @@ export class HomeComponent {
       Validators.email
     ]),
   });
+  
 
 
 
@@ -53,11 +58,13 @@ export class HomeComponent {
   get email() {
     return this.clientForm.get('email');
   }
-
-  constructor() {
+  
+  constructor(private router: Router) {
     effect(() => {
       this.totalPlusWeb = this.budgetService.totalPlusWeb();
       this.total = this.budgetService.total();
+      this.numLanguages = this.budgetService.numLanguages();
+      this.numPages = this.budgetService.numPages()
       this.calculateTotal();
     });
   }
@@ -76,6 +83,30 @@ export class HomeComponent {
       this.total = this.total + 500;
       this.total = this.total + this.budgetService.totalPlusWeb();
     }
+    
+  }
+
+  onCheckboxChange() {    
+    this.router.navigate([], {
+      queryParams: {
+        seo: this.isCheckedSeo,
+        ads: this.isCheckedAds,
+        web: this.isCheckedWeb
+      },
+      queryParamsHandling: 'merge' 
+    });
+    this.calculateTotal()
+  }
+
+  ngOnInit() {
+    this.router.routerState.root.queryParams.subscribe(params => {
+      this.isCheckedSeo = params['seo'] === 'true';
+      this.isCheckedAds = params['ads'] === 'true';
+      this.isCheckedWeb = params['web'] === 'true';
+      this.numLanguages = +params['lang'] || 1;
+      this.numPages = +params['pag'] || 1;
+      
+    });
   }
 
   onSubmit() {
