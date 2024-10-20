@@ -1,46 +1,83 @@
 @if(clientList.length > 0) {
 <div class=" container container-fluid">
-<div class="row">
-    <h3>Pressupostos en curs</h3>
-</div>
-<div class="row">
-    <input type="text">
-    <button class="btn sort-btn" (click)="sortByDate()">Data</button>
-    <button class="btn sort-btn" (click)="sortByImport()">Import</button>
-    <button class="btn sort-btn" (click)="sortByName()">Nom</button>
-
-</div>
-</div>
-
-@for(client of clientList; track client.clientName; let idx = $index) {
-<div class="card">
     <div class="row">
-        <div class="col-4">
-            <h3 class="card-title">{{client.clientName}}</h3>
-            <p>{{client.phone}}</p>
-            <p>{{client.email}}</p>
-        </div>
+        <h3>Pressupostos en curs</h3>
+    </div>
+    <div class="row">
+        <input type="text" onsubmit="searchByName()">
+        <button class="btn sort-btn" (click)="sortByDate()">Data</button>
+        <button class="btn sort-btn" (click)="sortByImport()">Import</button>
+        <button class="btn sort-btn" (click)="sortByName()">Nom</button>
 
-        <div class="col-6">
-            <ul>
-                <h6>Serveis contractats:</h6>
-
-                @if(client.seo === true) {
-                <li>Seo</li>
-                }
-                @if(client.ads === true) {
-                <li>Ads</li>
-                }
-                @if(client.web === true) {
-                <li>Web(pàgines:{{client.pages}}, llenguatges: {{client.lenguages}})</li>
-                }
-            </ul>
-        </div>
-        <div class="col-2">
-            <h6>Total:</h6>
-            <h3>{{client.total}}€</h3>
-        </div>
     </div>
 </div>
-}
+
+<div class="row">
+    @if (searchedByName == true) {
+
+    <div class="card">
+        <div class="row">
+            <div class="col-4">
+                <h3 class="card-title">{{foundClient.clientName}}</h3>
+                <p>{{foundClient.phone}}</p>
+                <p>{{foundClient.email}}</p>
+            </div>
+
+            <div class="col-6">
+                <ul>
+                    <h6>Serveis contractats:</h6>
+
+                    @if(foundClient.seo === true) {
+                    <li>Seo</li>
+                    }
+                    @if(foundClient.ads === true) {
+                    <li>Ads</li>
+                    }
+                    @if(foundClient.web === true) {
+                    <li>Web(pàgines:{{foundClient.pages}}, llenguatges: {{foundClient.lenguages}})</li>
+                    }
+                </ul>
+            </div>
+            <div class="col-2">
+                <h6>Total:</h6>
+                <h3>{{foundClient.total}}€</h3>
+            </div>
+        </div>
+    </div>
+
+    } @else {
+
+    @for(client of clientList; track client.clientName; let idx = $index) {
+    <div class="card">
+        <div class="row">
+            <div class="col-4">
+                <h3 class="card-title">{{client.clientName}}</h3>
+                <p>{{client.phone}}</p>
+                <p>{{client.email}}</p>
+            </div>
+
+            <div class="col-6">
+                <ul>
+                    <h6>Serveis contractats:</h6>
+
+                    @if(client.seo === true) {
+                    <li>Seo</li>
+                    }
+                    @if(client.ads === true) {
+                    <li>Ads</li>
+                    }
+                    @if(client.web === true) {
+                    <li>Web(pàgines:{{client.pages}}, llenguatges: {{client.lenguages}})</li>
+                    }
+                </ul>
+            </div>
+            <div class="col-2">
+                <h6>Total:</h6>
+                <h3>{{client.total}}€</h3>
+            </div>
+        </div>
+    </div>
+    }
+    }
+</div>
 }
