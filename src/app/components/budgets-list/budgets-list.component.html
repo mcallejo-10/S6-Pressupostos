@@ -4,13 +4,44 @@
         <h3>Pressupostos en curs</h3>
     </div>
 
+    <div class="row form">
+        <div class="col-8">
+            <div class="d-flex">
+                <div class="input-group">
+                    <input class="col form-control " type="search" #search (input)="searchByName(search.value)"
+                        onsubmit="searchByName(search.value)" placeholder="buscar per nom">
+                    <span class="input-group-text">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    
+                </div>
+                <button class="btn sort-btn col-2" (click)="sortByField('byDate')">Data
+                    @if(isSortedBy('byDate') && sortDirection === 'asc'){
+                        <i class="bi bi-caret-down"></i>
+                    }
+                    @if(isSortedBy('byDate') && sortDirection === 'desc'){
+                        <i class="bi bi-caret-up"></i>
+                    }
+                </button>
+                <button class="btn sort-btn col-2" (click)="sortByField('byImport')">Import
+                    @if(isSortedBy('byImport') && sortDirection === 'asc'){
+                        <i class="bi bi-caret-down"></i>
+                    }
+                    @if(isSortedBy('byImport') && sortDirection === 'desc'){
+                        <i class="bi bi-caret-up"></i>
+                    }
+                </button>
+                <button class="btn sort-btn col-2" (click)="sortByField('byName')">Nom
+                    @if(isSortedBy('byName') && sortDirection === 'asc'){
+                        <i class="bi bi-caret-down"></i>
+                    }
+                    @if(isSortedBy('byName') && sortDirection === 'desc'){
+                        <i class="bi bi-caret-up"></i>
+                    }
+                </button>
 
-    <div class="row">
-        <input class="form-control" type="search"   #search (input)="searchByName(search.value)" onsubmit="searchByName(search.value)">
-        <button class="btn sort-btn" (click)="sortByDate()">Data</button>
-        <button class="btn sort-btn" (click)="sortByImport()">Import</button>
-        <button class="btn sort-btn" (click)="sortByName()">Nom</button>
-
+            </div>
+        </div>
     </div>
 </div>
 

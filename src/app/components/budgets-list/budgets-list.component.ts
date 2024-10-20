@@ -16,6 +16,8 @@ export class BudgetsListComponent {
   sortedDate: boolean = false;
   sortedName: boolean = false;
   sortedImport: boolean = false;
+  sortDirection: string = '';
+  sortField: string = '';
   searchedByName: boolean = false;
   clientIdx: number = -1;
 
@@ -34,6 +36,27 @@ export class BudgetsListComponent {
     effect(() => {
       this.clientList = this.budgetService.clientsList();
     });
+  }
+
+
+  sortByField(field: string) {
+    if (this.sortField === field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {      
+      this.sortField = field;
+      this.sortDirection = 'asc';
+    }
+    switch(field) {
+      case 'byName': 
+        this.sortByName();
+        break;
+      case 'byDate': 
+        this.sortByDate();
+        break;
+      case 'byImport': 
+        this.sortByImport();
+        break;        
+    }
   }
 
   sortByDate() {
@@ -67,6 +90,10 @@ export class BudgetsListComponent {
       this.sortedImport = false;
     }
     this.searchedByName = false;
+  }
+
+  isSortedBy(field: string): boolean {
+    return this.sortField === field;
   }
 
   searchByName(inputName: string) {

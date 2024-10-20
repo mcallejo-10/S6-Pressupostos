@@ -1,3 +1,4 @@
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 .card {
     display: flex;
@@ -9,4 +10,21 @@
     border: 0;
     border-radius: 25px;
     flex-shrink: 1;
+}
+
+.form {
+    display: flex;
+    justify-content: flex-end;  
+    flex-wrap: nowrap;   
+}
+.form-control{
+    border-right: 0;
+}
+.input-group-text{
+    
+    background-color: white;
+}
+.bi {
+    width: 20px;
+    height: 20px;    
 }
