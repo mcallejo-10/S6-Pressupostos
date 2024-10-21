@@ -47,12 +47,12 @@
     @if (searchedByName == true) {
     <div class="card">
         <div class="row">
-            <div class="col-4">
+            <div class="col-md-4 col-sm-12">
                 <h3 class="card-title">{{foundClient.clientName}}</h3>
                 <p>{{foundClient.phone}}</p>
                 <p>{{foundClient.email}}</p>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12" id="serveis">
                 <ul>
                     <h6>Serveis contractats:</h6>
 
@@ -67,7 +67,7 @@
                     }
                 </ul>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 col-sm-6">
                 <h6>Total:</h6>
                 <h3>{{foundClient.total}}€</h3>
             </div>
@@ -77,13 +77,13 @@
     @for(client of clientList; track client.clientName; let idx = $index) {
     <div class="card">
         <div class="row">
-            <div class="col-4">
+            <div class="col-md-4 col-sm-12">
                 <h3 class="card-title">{{client.clientName}}</h3>
                 <p>{{client.phone}}</p>
                 <p>{{client.email}}</p>
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12" id="serveis">
                 <ul>
                     <h6>Serveis contractats:</h6>
 
@@ -98,7 +98,7 @@
                     }
                 </ul>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 col-sm-6">
                 <h6>Total:</h6>
                 <h3>{{client.total}}€</h3>
             </div>
