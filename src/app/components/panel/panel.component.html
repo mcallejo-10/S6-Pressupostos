@@ -4,43 +4,55 @@
       <button id="infoPagesButton" class="btn" data-bs-toggle="modal" data-bs-target="#infoPages">
         <i class="col-1 bi bi-info-circle m-0"></i>
       </button>
-      <div class="modal fade" id="infoPages" tabindex="-1" aria-labelledby="infoPagesLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <h3 class="p-3"><b>Número de pàgines</b></h3>
-              <p class="m-0">Afegeix el número de pàgines que tindrà el teu projecte.</p>
-              <p>El cos de cada pàgina és de 30€.</p>
-            </div>
-          </div>
+      
+      <label for="numPages" class="col-5 form-label">Número de Páginas</label>
+      <div class="col">
+        <div class="row flex-nowrap">          
+          <button type="button btn-sm" class="col-1 rounded-pill" (click)="decrement('numPages')">-</button>
+          <input id="numPages" class="col-2 form-control" formControlName="numPages" type="number">
+          <button type="button" class="col-1 rounded-pill" (click)="increment('numPages')">+</button>
         </div>
       </div>
-      <label for="numPages" class="col-5 form-label">Número de Páginas</label>
-      <button type="button btn-sm" class="col-1 rounded-pill" (click)="decrement('numPages')">-</button>
-      <input id="numPages" class="col-2 form-control" formControlName="numPages" type="number">
-      <button type="button" class="col-1 rounded-pill" (click)="increment('numPages')">+</button>
     </div>
 
     <div class="row">
       <button id="infoLenguagesButton" class="btn" data-bs-toggle="modal" data-bs-target="#infoLanguajes">
         <i class="col-1 bi bi-info-circle m-0"></i>
       </button>
-      <div class="modal fade" id="infoLanguajes" tabindex="-1" aria-labelledby="infoLanguagesLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <h3 class="p-3"><b>Número de llenguatges</b></h3>
-              <p class="m-0">Afegeix els llenguatges que tindrà el teu projecte.</p>
-              <p>El cos de cada llenguatge és de 30€.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <label for="numLang" class="col-5 form-label">Número de Idiomas</label>
+      <div class="col">
+        <div class="row flex-nowrap"> 
       <button type="button" class="col-1 rounded-pill" (click)="decrement('numLanguages')">-</button>
       <input id="numLanguages" class="col-2 form-control" formControlName="numLanguages" type="number">
       <button type="button" class="col-1 rounded-pill" (click)="increment('numLanguages')">+</button>
     </div>
+  </div>
+</div>
   </form>
 
+</div>
+
+<div class="modal fade" id="infoPages" tabindex="-1" aria-labelledby="infoPagesLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3 class="p-3"><b>Número de pàgines</b></h3>
+        <p class="m-0">Afegeix el número de pàgines que tindrà el teu projecte.</p>
+        <p>El cos de cada pàgina és de 30€.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="infoLanguajes" tabindex="-1" aria-labelledby="infoLanguagesLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3 class="p-3"><b>Número de llenguatges</b></h3>
+        <p class="m-0">Afegeix els llenguatges que tindrà el teu projecte.</p>
+        <p>El cos de cada llenguatge és de 30€.</p>
+      </div>
+    </div>
+  </div>
 </div>

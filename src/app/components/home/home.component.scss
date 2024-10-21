@@ -1,6 +1,6 @@
 .container{
     font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
- 
+    
     justify-content: center;
    
     padding: 1rem;
@@ -14,8 +14,8 @@
    
 }
 .logo {
-    width: 40px;
-    height: 30px;
+    max-width: 30px;
+    height: 20px;
     padding-right: 0;
 }
 
@@ -28,9 +28,20 @@
     padding: 5rem;
     margin: 2rem;
     border-radius: 50px;  
+    @media (max-width: 576px) {
+        padding: 3rem;
+        justify-content: center;
+        margin: 0;
+    }
 }
 h1{
     font-weight: bold;
+    
+    @media (max-width: 576px) {
+        font-size:larger;
+    }
+
+
 }
 h3 {
     font-weight: bold;
@@ -47,6 +58,11 @@ h3 {
     border-radius: 25px;
     flex-shrink: 1;
     
+    
+}
+.card-content {
+    
+    flex-shrink: 2;
 }
 
 .border-success {
@@ -55,6 +71,8 @@ h3 {
 
 .col {
     align-content: center;
+
+
 }
 
 .form-check {
@@ -62,9 +80,21 @@ h3 {
     align-items: center;
     justify-content:end;
     padding-right: 2rem;  
+    @media (max-width: 576px) {
+        justify-content: start;
+        padding-left: 0;
+        
+    }
 }
 
 .alert {
     font-size: smaller;
     padding: 5px;
 }
+
+.dotted-line {
+    border-top: 2px dashed grey; 
+    height: 0; 
+    width: 100%; 
+    margin: 0 auto; 
+  }

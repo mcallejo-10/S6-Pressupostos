@@ -4,9 +4,9 @@
         <h3>Pressupostos en curs</h3>
     </div>
     <div class="row form">
-        <div class="col-8">
-            <div class="d-flex">
-                <div class="input-group col">
+        <div class="col-lg-8 col-sm-12">
+            <div class="row">
+                <div class="col-lg-2 col-sm-12 input-group ">
                     <input class="form-control " type="search" #search (input)="searchByName(search.value)"
                         onsubmit="searchByName(search.value)" placeholder="buscar per nom">
                     <span class="input-group-text">
@@ -14,7 +14,7 @@
                     </span>
 
                 </div>
-                <button class="btn sort-btn col-2" (click)="sortByField('byDate')">Data
+                <button class="btn sort-btn col-lg-2 col-sm-6" (click)="sortByField('byDate')">Data
                     @if(isSortedBy('byDate') && sortDirection === 'asc'){
                     <i class="bi bi-caret-down"></i>
                     }
@@ -22,7 +22,7 @@
                     <i class="bi bi-caret-up"></i>
                     }
                 </button>
-                <button class="btn sort-btn col-2" (click)="sortByField('byImport')">Import
+                <button class="btn sort-btn col-lg-2 col-sm-6" (click)="sortByField('byImport')">Import
                     @if(isSortedBy('byImport') && sortDirection === 'asc'){
                     <i class="bi bi-caret-down"></i>
                     }
@@ -30,7 +30,7 @@
                     <i class="bi bi-caret-up"></i>
                     }
                 </button>
-                <button class="btn sort-btn col-2" (click)="sortByField('byName')">Nom
+                <button class="btn sort-btn col-lg-2 col-sm-6" (click)="sortByField('byName')">Nom
                     @if(isSortedBy('byName') && sortDirection === 'asc'){
                     <i class="bi bi-caret-down"></i>
                     }
