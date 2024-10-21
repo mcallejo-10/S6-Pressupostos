@@ -10,7 +10,7 @@ export class BudgetService {
   totalPlusWeb = signal<number>(0);
   total = signal<number>(0);
   clientsList = signal<Client[]>([]);
- 
+
 
   addClient(client: Client) {
     if (client.web === true) {
@@ -22,13 +22,13 @@ export class BudgetService {
     }
     client = {
       ...client,
-      created: this.getDate()            
+      created: this.getDate()
     }
 
     this.clientsList.set([...this.clientsList(), client]);
     console.warn(this.clientsList())
   }
-  
+
 
   calculateWebBudget(newNumPages: number, newNumLanguages: number) {
     this.numLanguages.set(newNumLanguages);
@@ -41,9 +41,8 @@ export class BudgetService {
 
   getDate() {
     let date = new Date()
-     return date.toISOString()
+    return date.toISOString()
   }
 
-  
 }
 

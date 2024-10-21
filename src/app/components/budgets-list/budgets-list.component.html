@@ -3,43 +3,41 @@
     <div class="row">
         <h3>Pressupostos en curs</h3>
     </div>
-
     <div class="row form">
         <div class="col-8">
             <div class="d-flex">
-                <div class="input-group">
-                    <input class="col form-control " type="search" #search (input)="searchByName(search.value)"
+                <div class="input-group col">
+                    <input class="form-control " type="search" #search (input)="searchByName(search.value)"
                         onsubmit="searchByName(search.value)" placeholder="buscar per nom">
                     <span class="input-group-text">
                         <i class="bi bi-search"></i>
                     </span>
-                    
+
                 </div>
                 <button class="btn sort-btn col-2" (click)="sortByField('byDate')">Data
                     @if(isSortedBy('byDate') && sortDirection === 'asc'){
-                        <i class="bi bi-caret-down"></i>
+                    <i class="bi bi-caret-down"></i>
                     }
                     @if(isSortedBy('byDate') && sortDirection === 'desc'){
-                        <i class="bi bi-caret-up"></i>
+                    <i class="bi bi-caret-up"></i>
                     }
                 </button>
                 <button class="btn sort-btn col-2" (click)="sortByField('byImport')">Import
                     @if(isSortedBy('byImport') && sortDirection === 'asc'){
-                        <i class="bi bi-caret-down"></i>
+                    <i class="bi bi-caret-down"></i>
                     }
                     @if(isSortedBy('byImport') && sortDirection === 'desc'){
-                        <i class="bi bi-caret-up"></i>
+                    <i class="bi bi-caret-up"></i>
                     }
                 </button>
                 <button class="btn sort-btn col-2" (click)="sortByField('byName')">Nom
                     @if(isSortedBy('byName') && sortDirection === 'asc'){
-                        <i class="bi bi-caret-down"></i>
+                    <i class="bi bi-caret-down"></i>
                     }
                     @if(isSortedBy('byName') && sortDirection === 'desc'){
-                        <i class="bi bi-caret-up"></i>
+                    <i class="bi bi-caret-up"></i>
                     }
                 </button>
-
             </div>
         </div>
     </div>
@@ -47,7 +45,6 @@
 
 <div class="row">
     @if (searchedByName == true) {
-
     <div class="card">
         <div class="row">
             <div class="col-4">
@@ -55,7 +52,6 @@
                 <p>{{foundClient.phone}}</p>
                 <p>{{foundClient.email}}</p>
             </div>
-
             <div class="col-6">
                 <ul>
                     <h6>Serveis contractats:</h6>
@@ -77,9 +73,7 @@
             </div>
         </div>
     </div>
-
     } @else {
-
     @for(client of clientList; track client.clientName; let idx = $index) {
     <div class="card">
         <div class="row">

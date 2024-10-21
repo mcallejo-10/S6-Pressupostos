@@ -42,20 +42,20 @@ export class BudgetsListComponent {
   sortByField(field: string) {
     if (this.sortField === field) {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    } else {      
+    } else {
       this.sortField = field;
       this.sortDirection = 'asc';
     }
-    switch(field) {
-      case 'byName': 
+    switch (field) {
+      case 'byName':
         this.sortByName();
         break;
-      case 'byDate': 
+      case 'byDate':
         this.sortByDate();
         break;
-      case 'byImport': 
+      case 'byImport':
         this.sortByImport();
-        break;        
+        break;
     }
   }
 
@@ -105,5 +105,4 @@ export class BudgetsListComponent {
       this.searchedByName = true;
     }
   }
-
 } 

@@ -3,7 +3,7 @@
 .container {
     display: flex;
     justify-content: flex-end;
-    
+
 }
 
 .row {
@@ -14,49 +14,49 @@
     width: fit-content;
 
 }
+
 .form-control {
     justify-items: center;
     width: 2rem;
-    height:fit-content;
+    height: fit-content;
     padding: 0;
     margin: 1rem;
     text-justify: center;
     text-align: center;
-
-
-
 }
+
 .rounded-pill {
     display: flex;
-    align-items: center;  
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     border: var(--bs-border-width) solid var(--bs-border-color);
     background-color: transparent;
     text-align: center;
-    width: 15px;  
-    height: 15px; 
-    font-size: 12px; 
-    padding: 0; 
-    cursor: pointer; 
-  }
-  
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    padding: 0;
+    cursor: pointer;
+}
+
 
 
 
 input[type="number"] {
+
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-
+        -webkit-appearance: none;
+        margin: 0;
     }
 }
-  
 
-.btn, .btn:focus, .btn:active {
+.btn,
+.btn:focus,
+.btn:active {
     background-color: transparent;
     width: 15px;
-    border: 0;    
+    border: 0;
 }
 
 .modal-body {
@@ -64,4 +64,3 @@ input[type="number"] {
     margin: 1rem;
 
 }
-

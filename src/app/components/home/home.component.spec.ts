@@ -30,7 +30,7 @@ describe('HomeComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h5')?.textContent).toContain('Preu pressupostat: 0€');
+    expect(compiled.querySelector('#preuTotal')?.textContent).toContain('Preu pressupostat: 0€');
 
   })
 
@@ -46,7 +46,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
     
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h5')?.textContent).toContain('Preu pressupostat: 300€');
+    expect(compiled.querySelector('#preuTotal')?.textContent).toContain('Preu pressupostat: 300€');
   })
 
   it('total shoud be 400 when Ads is checked', async() => {
@@ -59,7 +59,7 @@ describe('HomeComponent', () => {
 
     await fixture.whenStable();   
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h5')?.textContent).toContain('Preu pressupostat: 400€');
+    expect(compiled.querySelector('#preuTotal')?.textContent).toContain('Preu pressupostat: 400€');
   })
 
   it('total shoud be 530 when Web is checked', async() => {
@@ -75,7 +75,7 @@ describe('HomeComponent', () => {
     
     
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h5')?.textContent).toContain('Preu pressupostat: 530€');
+    expect(compiled.querySelector('#preuTotal')?.textContent).toContain('Preu pressupostat: 530€');
   })
 
 });
