@@ -42,7 +42,7 @@ El proyecto está desarrollado con **Angular 18**, utilizando **TypeScript** com
 
 1. Clona este repositorio en tu máquina local.
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/mcallejo-10/S6-Pressupostos.git
    ```
 2. Instala las dependencias necesarias ejecutando:
    ```bash
