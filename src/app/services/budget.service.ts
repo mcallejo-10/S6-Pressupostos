@@ -26,7 +26,7 @@ export class BudgetService {
     }
 
     this.clientsList.set([...this.clientsList(), client]);
-    console.warn(this.clientsList())
+ 
   }
 
 

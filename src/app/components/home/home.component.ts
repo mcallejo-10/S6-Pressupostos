@@ -120,7 +120,7 @@ export class HomeComponent {
         web: this.isCheckedWeb,
         total: this.total,
       }
-      console.warn(this.client);
+      
       this.budgetService.addClient(this.client)
     }
   }
