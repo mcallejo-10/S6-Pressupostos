@@ -105,7 +105,6 @@ export class BudgetsListComponent {
       if (client.clientName.toLowerCase().includes(inputName.toLowerCase())) {
         this.foundClientList.push(client)
       }
-      console.log(this.foundClientList);
       this.searchedByName = true;
 
     })
