@@ -24,7 +24,7 @@ export class HomeComponent {
   isCheckedSeo: boolean = false;
   isCheckedAds: boolean = false;
   isCheckedWeb: boolean = false;
-
+  oneCheckMin: boolean = true;
   numPages: number = 1;
   numLanguages: number =1;
 
@@ -95,6 +95,7 @@ export class HomeComponent {
       },
       queryParamsHandling: 'merge' 
     });
+    this.oneCheckMin = true;
     this.calculateTotal()
   }
 
@@ -111,6 +112,7 @@ export class HomeComponent {
 
   onSubmit() {
     if (this.total > 0) {
+      this.oneCheckMin = true;
       this.client = {
         clientName: this.clientForm.value.name!,
         phone: this.clientForm.value.phone!,
@@ -122,6 +124,8 @@ export class HomeComponent {
       }
       
       this.budgetService.addClient(this.client)
+    } else {
+      this.oneCheckMin = false;
     }
   }
 }
