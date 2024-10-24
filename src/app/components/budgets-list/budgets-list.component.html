@@ -45,34 +45,37 @@
 
 <div class="row">
     @if (searchedByName == true) {
-    <div class="card">
-        <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <h3 class="card-title">{{foundClient.clientName}}</h3>
-                <p>{{foundClient.phone}}</p>
-                <p>{{foundClient.email}}</p>
+        @for(client of foundClientList; track client.clientName; let idx = $index) {
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <h3 class="card-title">{{client.clientName}}</h3>
+                        <p>{{client.phone}}</p>
+                        <p>{{client.email}}</p>
+                    </div>
+        
+                    <div class="col-md-6 col-sm-12" id="serveis">
+                        <ul>
+                            <h6>Serveis contractats:</h6>
+        
+                            @if(client.seo === true) {
+                            <li>Seo</li>
+                            }
+                            @if(client.ads === true) {
+                            <li>Ads</li>
+                            }
+                            @if(client.web === true) {
+                            <li>Web(pàgines:{{client.pages}}, llenguatges: {{client.lenguages}})</li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <h6>Total:</h6>
+                        <h3 class="d-flex">{{client.total}}€</h3>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6 col-sm-12" id="serveis">
-                <ul>
-                    <h6>Serveis contractats:</h6>
-
-                    @if(foundClient.seo === true) {
-                    <li>Seo</li>
-                    }
-                    @if(foundClient.ads === true) {
-                    <li>Ads</li>
-                    }
-                    @if(foundClient.web === true) {
-                    <li>Web(pàgines:{{foundClient.pages}}, llenguatges: {{foundClient.lenguages}})</li>
-                    }
-                </ul>
-            </div>
-            <div class="col-md-2 col-sm-6">
-                <h6>Total:</h6>
-                <h3>{{foundClient.total}}€</h3>
-            </div>
-        </div>
-    </div>
+            }
     } @else {
     @for(client of clientList; track client.clientName; let idx = $index) {
     <div class="card">

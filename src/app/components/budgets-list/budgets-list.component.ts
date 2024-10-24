@@ -21,6 +21,8 @@ export class BudgetsListComponent {
   searchedByName: boolean = false;
   clientIdx: number = -1;
 
+  foundClientList: Client[] = [];
+
   foundClient: Client = {
     clientName: '',
     phone: '',
@@ -97,12 +99,15 @@ export class BudgetsListComponent {
   }
 
   searchByName(inputName: string) {
-    this.clientIdx = this.clientList.findIndex(item => item.clientName.toLocaleLowerCase() == inputName.toLocaleLowerCase())
-    if (this.clientIdx < 0 || inputName.length == 0) {
-      this.searchedByName = false;
-    } else {
-      this.foundClient = this.clientList[this.clientIdx]
+    this.foundClientList = [];
+    this.clientList.forEach(client => {
+
+      if (client.clientName.toLowerCase().includes(inputName.toLowerCase())) {
+        this.foundClientList.push(client)
+      }
+      console.log(this.foundClientList);
       this.searchedByName = true;
-    }
+
+    })
   }
 } 
